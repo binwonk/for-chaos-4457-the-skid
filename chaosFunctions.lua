@@ -23,6 +23,7 @@ return game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("H
 end
 
 function chaosFunctions.teleport(value)
+print(typeof(value))
 local CFramePos = nil;
 if typeof(value) == "Vector3" then
 CFramePos = chaosFunctions.convertToCFrame(value)
