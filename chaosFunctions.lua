@@ -31,7 +31,7 @@ function chaosFunctions.checkCharFromPlayer(value)
     end
 end
 
-function chaosFunctions.getClosestPlayers()
+function chaosFunctions.getClosestPlayer()
     local Distance = math.huge
 	local ClosestPlayer = nil
     if chaosFunctions.checkChar() then
@@ -51,7 +51,7 @@ function chaosFunctions.getClosestPlayers()
 end
 
 function chaosFunctions.getClosestCharacter()
-    local returnValue = chaosFunctions.getClosestPlayers()
+    local returnValue = chaosFunctions.getClosestPlayer()
     if returnValue ~= nil then
         return returnValue.Character
     end
