@@ -124,4 +124,19 @@ function chaosFunctions.hook(values)
     end)
 end
 
+function chaosFunctions.hookFunction(values)
+    values = {
+        Target = "function path",
+        Function = "the hook thing"
+    }
+
+    if typeof(values.Target) == "function" and typeof(values.Target) == "function" then
+        local old;
+        old = hookfunction(values.Target,values.Function)
+        return true
+    else
+        return false
+    end
+end
+
 return chaosFunctions
