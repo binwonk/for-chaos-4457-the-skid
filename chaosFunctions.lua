@@ -38,8 +38,8 @@ function chaosFunctions.checkCharFromPlayer(value)
 end
 
 function chaosFunctions.getClosestPlayer()
-   local Distance = math.huge
-   local ClosestPlayer = nil
+    local Distance = math.huge
+    local ClosestPlayer = nil
     if chaosFunctions.checkChar() then
         for i,v in pairs(game:GetService("Players"):GetPlayers()) do
             if v ~= LocalPlayer and chaosFunctions.checkCharFromPlayer(v) then
