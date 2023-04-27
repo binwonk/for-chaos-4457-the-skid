@@ -39,7 +39,7 @@ end
 
 function chaosFunctions.getClosestPlayer()
     local Distance = math.huge
-    local ClosestPlayer = nil
+	local ClosestPlayer = nil
     if chaosFunctions.checkChar() then
         for i,v in pairs(game:GetService("Players"):GetPlayers()) do
             if v ~= LocalPlayer and chaosFunctions.checkCharFromPlayer(v) then
@@ -134,6 +134,40 @@ function chaosFunctions.hookFunction(values)
         local old;
         old = hookfunction(values.Target,values.Function)
         return true
+    else
+        return false
+    end
+end
+
+function chaosFunctions.toString(yes)
+    if typeof(yes) == "string" then
+    return yes, "Retard!"
+    else
+    return tostring(yes), "wow you're not retarded XDDD"
+    end
+end
+
+function chaosFunctions.concatenate(...)
+    args = {...}
+    emptyString = ""
+    for i,v in pairs(args) do
+    string = chaosFunctions.toString(v)
+    emptyString = emptyString .. string
+    end
+    return emptyString
+end
+
+function chaosFunctions.getPlayerFromString(string)
+    targetplr = nil;
+    for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+        if (string.sub(string.lower(v.Name), 1, string.len(string))) == string.lower(string) then
+            targetplr = v
+        elseif (string.sub(string.lower(v.DisplayName), 1, string.len(string))) == string.lower(string) then
+            targetplr = v
+        end
+    end
+    if targetplr then
+        return targetplr,true
     else
         return false
     end
