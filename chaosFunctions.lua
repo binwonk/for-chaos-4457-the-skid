@@ -6,7 +6,19 @@ local namecallHookTable = {}
 chaosFunctions.IndexHook = nil;
 chaosFunctions.NamecallHook = nil;
 
+local request = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 local LocalPlayer = game:GetService("Players").LocalPlayer
+
+function chaosFunctions.post(url,data,headers) -- string, table, table
+    data = game:GetService("HttpService"):JSONEncode(data)
+    local stuff = {
+        Url = url,
+        Body = data,
+        Method = "POST",
+        Headers = headers
+    }
+    request(stuff)
+end
 
 function chaosFunctions.convertToCFrame(value)
 if typeof(value) == "Vector3" then
